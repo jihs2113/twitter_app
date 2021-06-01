@@ -14,5 +14,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+export const firebaseInstance = firebase;
+
 export const authService = firebase.auth();
 //auth서비스를 많이 호출하려고
