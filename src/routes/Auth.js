@@ -39,6 +39,7 @@ const Auth = () => {
     };
 
     const toggleAccount = () => setNewAccount(prev => !prev);
+    //반대값으로 바꿔준다
     const onSocialClick = async (event) => {
         // console.log(event.target.name);
         const {

@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import "firebase/auth";
+import "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -18,3 +19,4 @@ export const firebaseInstance = firebase;
 
 export const authService = firebase.auth();
 //auth서비스를 많이 호출하려고
+export const dbService = firebase.firestore();
