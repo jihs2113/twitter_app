@@ -5,7 +5,8 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({isLoggedIn}) => {
+const AppRouter = ({isLoggedIn, userObj}) => {
+    //prop한 state를 받아서 사용한다.
     
     return (
         <Router>
@@ -14,7 +15,7 @@ const AppRouter = ({isLoggedIn}) => {
                 {isLoggedIn ? (
                 <>
                     <Route exact path="/">
-                        <Home/>
+                        <Home userObj={userObj}/>
                     </Route> 
                     <Route exact path="/Profile">
                         <Profile/>
