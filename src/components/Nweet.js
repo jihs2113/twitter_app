@@ -1,0 +1,61 @@
+import { dbService } from 'fbase';
+import React, { useState } from 'react';
+
+const Nweet = ({ nweetObj , isOwner }) => {
+    const [editing, setEditing] = useState(false);
+    const [newNweet, setNewNweet] = useState(nweetObj.text);
+    const onDeleteClick = async() => {
+        const ok = window.confirm("Are you sure?");
+        if(ok){
+            await dbService.doc(`nweets/${nweetObj.id}`).delete();
+            //delete nweet
+        }
+    };
+    const  toggleEditing = () => setEditing((prev) => !prev);
+    const onSubmit = async(event) => {
+        event.preventDefault();
+        // console.log(nweetObj, newNweet);
+        await dbService.doc(`nweets/${nweetObj.id}`).update({
+            text:newNweet,
+            //newNweet는 input에 있는 text이다.
+        });
+        setEditing(false);
+    };
+    const onChange = (event) =>{
+        const {
+            target:{ value },
+        }=event;
+        setNewNweet(value);
+    };
+    return(
+    <div>
+        {editing ? (
+            //수정하고있는 경우에
+            <>
+            <form onSubmit={onSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="Edit nweet" 
+                    value={newNweet} 
+                    required 
+                    onChange={onChange}
+                    />
+                <input type="submit" value="Update Nweet" />
+            </form> 
+            <button onClick={toggleEditing}>Cancel</button>
+            </>
+         ) : (
+        <>
+        <h4>{nweetObj.text}</h4>
+        {isOwner && (
+            <>
+            <button onClick={onDeleteClick}>Delete Nweet</button>
+            <button onClick={toggleEditing}>Edit Nweet</button>
+            </>
+        )}
+        </>)
+        }
+    </div>
+    );
+};
+export default Nweet;
