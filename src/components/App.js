@@ -31,7 +31,6 @@ function App() {
       //기본적으로 userObj가 존재할때 로그인 되고 없다면 로그인 안된다.
       //state를 router.js로 prop해준다.
        ) : "Initializing.."}
-      <footer>&copy; {new Date().getFullYear()} twitter_app </footer>
     </>
  );
 }
