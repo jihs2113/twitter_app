@@ -1,4 +1,4 @@
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react';
 
 const Nweet = ({ nweetObj , isOwner }) => {
@@ -9,6 +9,10 @@ const Nweet = ({ nweetObj , isOwner }) => {
         if(ok){
             await dbService.doc(`nweets/${nweetObj.id}`).delete();
             //delete nweet
+            await storageService.refFromURL(nweetObj.attachmentUrl).delete();
+            //refFromURL함수를 이용하면 URL에서 reference를 얻을수있다.
+            //firebase에 refFromURL함수에 url을 넘기면 그object의 reference를 얻는다. 
+            //이 작업으로 nweet와 사진을 가진 reference 자체를 삭제해준다.
         }
     };
     const  toggleEditing = () => setEditing((prev) => !prev);
@@ -47,6 +51,8 @@ const Nweet = ({ nweetObj , isOwner }) => {
          ) : (
         <>
         <h4>{nweetObj.text}</h4>
+        {nweetObj.attachmentUrl && (<img src={nweetObj.attachmentUrl} width="50px" height="50px" />
+         )}
         {isOwner && (
             <>
             <button onClick={onDeleteClick}>Delete Nweet</button>
