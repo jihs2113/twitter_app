@@ -24,7 +24,9 @@ function App() {
         updateProfile: (args) => user.updateProfile(args),
 
         });
-      } 
+      } else{
+        setUserObj(null);
+      }
       setInit(true);
       //우린 항상 true로 한다 
       //왜냐하면 초기화가 되던 어플리케이션이 언제 시작되든? onAuthStateChanged 시작되어야한다.
