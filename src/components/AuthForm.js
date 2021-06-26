@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {authService} from "fbase";
 
-const inputStyles = {};
+// const inputStyles = {};
 
 const AuthForm = () => {
     const [email, setEmail] = useState("");
