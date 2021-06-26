@@ -1,5 +1,7 @@
 import { dbService, storageService } from 'fbase';
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Nweet = ({ nweetObj , isOwner }) => {
     const [editing, setEditing] = useState(false);
@@ -32,36 +34,45 @@ const Nweet = ({ nweetObj , isOwner }) => {
         setNewNweet(value);
     };
     return(
-    <div>
+    <div className="nweet">
         {editing ? (
             //수정하고있는 경우에
             <>
-            <form onSubmit={onSubmit}>
+             <form onSubmit={onSubmit} className="container nweetEdit">
                 <input 
                     type="text" 
                     placeholder="Edit nweet" 
                     value={newNweet} 
                     required 
                     onChange={onChange}
+                    autoFocus
+                    className="formInput"
                     />
-                <input type="submit" value="Update Nweet" />
+                 <input type="submit" value="Update Nweet" className="formBtn" />
             </form> 
-            <button onClick={toggleEditing}>Cancel</button>
+            <span onClick={toggleEditing} className="formBtn cancelBtn">
+                Cancel
+            </span>
             </>
          ) : (
-        <>
-        <h4>{nweetObj.text}</h4>
-        {nweetObj.attachmentUrl && (<img src={nweetObj.attachmentUrl} width="50px" height="50px" alt="" />
-         )}
-        {isOwner && (
             <>
-            <button onClick={onDeleteClick}>Delete Nweet</button>
-            <button onClick={toggleEditing}>Edit Nweet</button>
+            <h4>{nweetObj.text}</h4>
+           
+            {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl}  alt="" />}
+            {isOwner && (
+            
+              <div class="nweet__actions">
+                   <span onClick={onDeleteClick}>
+                <FontAwesomeIcon icon={faTrash} />
+              </span>
+              <span onClick={toggleEditing}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </span>
+            </div>
+            )};
             </>
-        )}
-        </>)
-        }
-    </div>
-    );
-};
+            )};
+        </div>
+        );
+    };
 export default Nweet;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {authService} from "fbase";
 
+const inputStyles = {};
+
 const AuthForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -44,13 +46,14 @@ const AuthForm = () => {
     //반대값으로 바꿔준다
     return (
         <>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="container">
             <input 
                 name="email" 
                 type="email" 
                 placeholder="Email" 
                 required value={email} 
                 onChange={onChange}
+                className="authInput"
             />
             <input 
                 name="password" 
@@ -58,13 +61,15 @@ const AuthForm = () => {
                 placeholder="password" 
                 required value={password}
                 onChange={onChange}
+                className="authInput"
             />
             <input 
                 type="submit" 
+                className="authInput authSubmit"
                 value={newAccount ? "Create Account" : "Log In"}/>
-            {error}
+             {error && <span className="authError">{error}</span>}
         </form>
-        <span onClick={toggleAccount}>
+        <span onClick={toggleAccount} className="authSwitch">
             {newAccount ? "Sign In" : "Create Account"}
         </span>
         </>
