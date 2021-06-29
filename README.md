@@ -1,70 +1,33 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>프로젝트:firebase를 이용한 소셜로그인 및 인가인증 페이지</h1>
+<ul>
+  <li>트위터 로그인 페이지를 클론 하였습니다.</li>
+</ul>
 
-## Available Scripts
+<h2>목표</h2>
+<ul>
+  <li>firebase 이용하기.</li>
+  <li>firebase에서 데이터등 관리하고 함수 적용시키기</li>
+  <li>모든 컴포넌트를 Function 으로 만들어 Hooks로 Lifecycle Methods들을 완벽하게 대체해보기.</li>
+  <li>hooks를 활용한 state 관리 적용해보기.</li>
+  <li>실제 웹서비스 수준의 인증/인가 구현해보기.</li>
+  <li>소셜 로그인 구현해보기.</li>
+  <li>이미지 파일과 text문구를 실시간 CRUD 적용하기.</li>
+  <li>github 페이지로 내 도메인 주소에 호스팅 배포 해보기.</li>
+</ul>
 
-In the project directory, you can run:
+<h2>사용된 기술</h2>
+<ul>
+  <li>Front-End: <h6>React, Hooks, Google/github Social Login </h6> </li>
+  <li>Back-End: <h6>Firebase</h6></li>
+  <li>Deployment:<h6>github pages</h6></li>
+</ul>
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>기능</h2>
+<ul>
+  <li>외부 라이브러리 없이 순수 CSS를 활용한 반응형 웹</li>
+  <li>회원가입 / 로그인 / 로그아웃 (구글/깃헙 로그인으로 대체 가능) - Social login</li>
+  <li>hooks 상태 관리 (firebase에 접근하여 유저 정보 관리 ) - Hooks</li>
+  <li>redirect와 router에 대한 이해로 SPA 구현 - useHistory, useEffect, preventDefault</li>
+  <li>firebase에서 db를 관리하며 함수를 이용한 이미지 파일 및 text문 CRUD 구현 - firebaseInstance, authService, dbService, uuid v4</li>
+</ul>
